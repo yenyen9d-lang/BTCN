@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng ký</title>
+
+    <style>
+        table {
+            border: 1px solid black;
+            width: 700px;
+            padding: 20px;
+        }
+
+        td {
+            padding: 8px;
+            font-size: 24px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"],
+        select {
+            width: 380px;
+            height: 45px;
+            font-size: 22px;
+            box-sizing: border-box;
+        }
+
+        input[type="radio"] {
+            width: 22px;
+            height: 22px;
+        }
+
+        input[type="submit"] {
+            font-size: 24px;
+            padding: 8px 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form>
+        <table>
+
+            <!-- Enter name -->
+            <tr>
+                <td>Enter name:</td>
+                <td>
+                    <input type="text" name="name">
+                </td>
+            </tr>
+
+            <!-- Enter password -->
+            <tr>
+                <td>Enter password:</td>
+                <td>
+                    <input type="password" name="password">
+                </td>
+            </tr>
+
+            <!-- Enter Email -->
+            <tr>
+                <td>Enter Email:</td>
+                <td>
+                    <input type="email" name="email">
+                </td>
+            </tr>
+
+            <!-- Gender -->
+            <tr>
+                <td>Enter Gender:</td>
+                <td>
+                    <input type="radio" name="gender" value="male">
+                    male
+
+                    <input type="radio" name="gender" value="female">
+                    female
+                </td>
+            </tr>
+
+            <!-- Country -->
+            <tr>
+                <td>Select Country:</td>
+                <td>
+                    <select name="country">
+                        <option>india</option>
+                        <option>Vietnam</option>
+                        <option>Japan</option>
+                        <option>Korea</option>
+                        <option>America</option>
+                    </select>
+                </td>
+            </tr>
+
+            <!-- Register -->
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="register">
+                </td>
+            </tr>
+
+        </table>
+    </form>
+
+</body>
+</html>
