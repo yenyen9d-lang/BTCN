@@ -1,0 +1,96 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    color: #222;
+    padding: 30px 5%;
+}
+
+.question {
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Tiêu đề câu hỏi */
+.question-title {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 45px;
+}
+
+.question-number {
+    font-size: 38px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.question-name {
+    font-size: 38px;
+    font-weight: bold;
+}
+
+/* Nội dung câu hỏi */
+.description {
+    font-size: 28px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Danh sách đáp án */
+.answers {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Từng đáp án */
+.answer {
+    width: 100%;
+    min-height: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background-color: #f5f6f8;
+    border-radius: 15px;
+
+    font-size: 24px;
+    text-align: center;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* Khi rê chuột */
+.answer:hover {
+    background-color: #e9ebee;
+}
+
+/* Đáp án đúng */
+.answer.correct {
+    background-color: #28a745;
+    color: white;
+}
+
+/* Đáp án sai */
+.answer.wrong {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Thông báo kết quả */
+#result {
+    margin-top: 30px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}

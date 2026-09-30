@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Câu 23 - CSS Background</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #222;
+            padding: 30px 5%;
+        }
+
+        .question {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* Tiêu đề */
+        .question-title {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 45px;
+        }
+
+        .question-number {
+            font-size: 38px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .question-name {
+            font-size: 38px;
+            font-weight: bold;
+        }
+
+        /* Nội dung câu hỏi */
+        .description {
+            font-size: 28px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        /* Các đáp án */
+        .answers {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .answer {
+            width: 100%;
+            min-height: 90px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            background-color: #f5f6f8;
+            border-radius: 15px;
+
+            font-size: 24px;
+            text-align: center;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        /* Khi di chuột */
+        .answer:hover {
+            background-color: #e9ebee;
+        }
+
+        /* Đúng */
+        .answer.correct {
+            background-color: #28a745;
+            color: white;
+        }
+
+        /* Sai */
+        .answer.wrong {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        /* Thông báo */
+        #result {
+            margin-top: 30px;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="question">
+
+        <!-- Tiêu đề -->
+        <div class="question-title">
+            <div class="question-number">Câu 23.</div>
+
+            <div class="question-name">
+                Sử dụng cú pháp "shorthand" cho background
+            </div>
+        </div>
+
+        <!-- Nội dung -->
+        <div class="description">
+            Sử dụng cách viết ‘shorthand’ khi CSS thuộc tính background.
+            <br>
+            Chọn câu trả lời đúng.
+        </div>
+
+        <!-- Đáp án -->
+        <div class="answers">
+
+            <div class="answer"
+                 onclick="checkAnswer(this, false)">
+                background: url(imgae.png) no-repeat center contain
+            </div>
+
+            <div class="answer"
+                 onclick="checkAnswer(this, true)">
+                background: url(imgae.png) center / contain no-repeat
+            </div>
+
+            <div class="answer"
+                 onclick="checkAnswer(this, false)">
+                background: url(imgae.png) center contain no-repeat
+            </div>
+
+        </div>
+
+        <!-- Kết quả -->
+        <div id="result"></div>
+
+    </div>
+
+
+    <script>
+        function checkAnswer(element, isCorrect) {
+
+            // Xóa trạng thái cũ
+            const answers = document.querySelectorAll(".answer");
+
+            answers.forEach(function(answer) {
+                answer.classList.remove("correct");
+                answer.classList.remove("wrong");
+            });
+
+            // Kiểm tra đáp án
+            if (isCorrect) {
+
+                element.classList.add("correct");
+
+                document.getElementById("result").innerHTML =
+                    "✓ Chính xác!";
+
+                document.getElementById("result").style.color = "#28a745";
+
+            } else {
+
+                element.classList.add("wrong");
+
+                document.getElementById("result").innerHTML =
+                    "✗ Chưa đúng! Hãy thử lại.";
+
+                document.getElementById("result").style.color = "#dc3545";
+            }
+        }
+    </script>
+
+</body>
+</html>

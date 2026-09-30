@@ -1,0 +1,13 @@
+.button {
+    /* Thêm phần đệm, cho nút dày lên */
+   
+    padding: 8px 16px;
+
+
+    color: #fff;
+    background-color: #f05123;
+
+
+    /* Bỏ gạch chân mặc định của thẻ a */
+    text-decoration: none;
+}
