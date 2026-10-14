@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Trò chơi Oẳn tù tì</title>
+</head>
+<body>
+
+    <h2>Trò chơi Oẳn tù tì</h2>
+
+    <p>Hãy chọn một trong ba lựa chọn:</p>
+
+    <button onclick="choi('Đá')">Đá</button>
+    <button onclick="choi('Giấy')">Giấy</button>
+    <button onclick="choi('Kéo')">Kéo</button>
+
+    <p id="ketqua"></p>
+
+    <script>
+        function choi(nguoiChon) {
+            let danhSach = ["Đá", "Giấy", "Kéo"];
+
+            let mayChon = danhSach[
+                Math.floor(Math.random() * 3)
+            ];
+
+            let ketQua;
+
+            if (nguoiChon === mayChon) {
+                ketQua = "Hòa!";
+            } else if (
+                (nguoiChon === "Đá" && mayChon === "Kéo") ||
+                (nguoiChon === "Giấy" && mayChon === "Đá") ||
+                (nguoiChon === "Kéo" && mayChon === "Giấy")
+            ) {
+                ketQua = "Bạn thắng!";
+            } else {
+                ketQua = "Bạn thua!";
+            }
+
+            document.getElementById("ketqua").innerHTML =
+                "Bạn chọn: " + nguoiChon +
+                "<br>Máy chọn: " + mayChon +
+                "<br>Kết quả: " + ketQua;
+        }
+    </script>
+
+</body>
+</html>

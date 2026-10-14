@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Xếp loại học lực</title>
+</head>
+<body>
+
+    <h2>Chương trình xếp loại học lực</h2>
+
+    <p>Nhập điểm từ 0 đến 100:</p>
+
+    <input type="number" id="diem" placeholder="Nhập điểm">
+
+    <button onclick="xepLoai()">Xếp loại</button>
+
+    <p id="ketqua"></p>
+
+    <script>
+        function xepLoai() {
+            let diemNhap = document.getElementById("diem").value;
+            let diem = Number(diemNhap);
+            let loai;
+
+            if (diemNhap === "" || diem < 0 || diem > 100) {
+                document.getElementById("ketqua").innerHTML =
+                    "Vui lòng nhập điểm từ 0 đến 100!";
+            } else if (diem >= 90) {
+                loai = "A";
+            } else if (diem >= 80) {
+                loai = "B";
+            } else if (diem >= 70) {
+                loai = "C";
+            } else if (diem >= 60) {
+                loai = "D";
+            } else {
+                loai = "F";
+            }
+
+            if (diemNhap !== "" && diem >= 0 && diem <= 100) {
+                document.getElementById("ketqua").innerHTML =
+                    "Xếp loại học lực: " + loai;
+            }
+        }
+    </script>
+
+</body>
+</html>

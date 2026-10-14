@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính tuổi</title>
+</head>
+<body>
+
+    <h2>Chương trình tính tuổi</h2>
+
+    <p>Nhập năm sinh:</p>
+
+    <input type="number" id="namsinh" placeholder="Nhập năm sinh">
+
+    <button onclick="tinhTuoi()">Tính tuổi</button>
+
+    <p id="ketqua"></p>
+
+    <script>
+        function tinhTuoi() {
+            let namSinhNhap = document.getElementById("namsinh").value;
+            let namSinh = Number(namSinhNhap);
+            let namHienTai = new Date().getFullYear();
+
+            if (
+                namSinhNhap === "" ||
+                !Number.isInteger(namSinh) ||
+                namSinh < 1 ||
+                namSinh > namHienTai
+            ) {
+                document.getElementById("ketqua").innerHTML =
+                    "Vui lòng nhập năm sinh hợp lệ!";
+            } else {
+                let tuoi = namHienTai - namSinh;
+
+                document.getElementById("ketqua").innerHTML =
+                    "Tuổi của bạn là: " + tuoi;
+            }
+        }
+    </script>
+
+</body>
+</html>

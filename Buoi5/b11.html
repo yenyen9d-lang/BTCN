@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra mật khẩu</title>
+</head>
+<body>
+
+    <h2>Chương trình kiểm tra mật khẩu</h2>
+
+    <p>Nhập mật khẩu:</p>
+
+    <input type="password" id="matkhau" placeholder="Nhập mật khẩu">
+
+    <button onclick="kiemTra()">Kiểm tra</button>
+
+    <p id="ketqua"></p>
+
+    <script>
+        function kiemTra() {
+            let matKhau = document.getElementById("matkhau").value;
+
+            if (matKhau.length >= 8) {
+                document.getElementById("ketqua").innerHTML =
+                    "Mật khẩu hợp lệ";
+            } else {
+                document.getElementById("ketqua").innerHTML =
+                    "Mật khẩu quá ngắn";
+            }
+        }
+    </script>
+
+</body>
+</html>

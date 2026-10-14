@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi nhiệt độ</title>
+</head>
+<body>
+    <h2>Chuyển đổi nhiệt độ</h2>
+
+    <label>Nhập nhiệt độ Celsius (°C):</label>
+    <input type="number" id="celsius">
+
+    <button onclick="chuyenDoi()">Chuyển đổi</button>
+
+    <p id="ketQua"></p>
+
+    <script>
+        function chuyenDoi() {
+            let c = document.getElementById("celsius").value;
+
+            if (c === "") {
+                document.getElementById("ketQua").innerHTML =
+                    "Vui lòng nhập nhiệt độ!";
+                return;
+            }
+
+            c = Number(c);
+
+            let f = (c * 9 / 5) + 32;
+
+            document.getElementById("ketQua").innerHTML =
+                c + "°C = " + f + "°F";
+        }
+    </script>
+</body>
+</html>

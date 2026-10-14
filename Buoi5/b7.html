@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Xúc xắc may mắn</title>
+</head>
+<body>
+
+    <h2>Trò chơi xúc xắc may mắn</h2>
+
+    <button onclick="lacXucXac()">Lắc xúc xắc</button>
+
+    <p id="ketqua"></p>
+
+    <script>
+        function lacXucXac() {
+            let so = Math.floor(Math.random() * 6) + 1;
+
+            document.getElementById("ketqua").innerHTML =
+                "Số xúc xắc bạn nhận được là: " + so;
+        }
+    </script>
+
+</body>
+</html>

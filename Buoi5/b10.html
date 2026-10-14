@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Máy tính đơn giản</title>
+</head>
+<body>
+
+    <h2>Máy tính đơn giản</h2>
+
+    <p>Nhập số thứ nhất:</p>
+    <input type="number" id="so1" placeholder="Nhập số thứ nhất">
+
+    <p>Nhập số thứ hai:</p>
+    <input type="number" id="so2" placeholder="Nhập số thứ hai">
+
+    <br><br>
+
+    <button onclick="tinhToan('+')">Cộng</button>
+    <button onclick="tinhToan('-')">Trừ</button>
+    <button onclick="tinhToan('*')">Nhân</button>
+    <button onclick="tinhToan('/')">Chia</button>
+
+    <p id="ketqua"></p>
+
+    <script>
+        function tinhToan(phepTinh) {
+            let nhap1 = document.getElementById("so1").value;
+            let nhap2 = document.getElementById("so2").value;
+
+            let a = Number(nhap1);
+            let b = Number(nhap2);
+            let ketQua;
+
+            if (nhap1 === "" || nhap2 === "") {
+                document.getElementById("ketqua").innerHTML =
+                    "Vui lòng nhập đủ hai số!";
+                return;
+            }
+
+            if (phepTinh === "+") {
+                ketQua = a + b;
+            } else if (phepTinh === "-") {
+                ketQua = a - b;
+            } else if (phepTinh === "*") {
+                ketQua = a * b;
+            } else if (phepTinh === "/") {
+                if (b === 0) {
+                    document.getElementById("ketqua").innerHTML =
+                        "Không thể chia cho 0!";
+                    return;
+                }
+
+                ketQua = a / b;
+            }
+
+            document.getElementById("ketqua").innerHTML =
+                "Kết quả: " + ketQua;
+        }
+    </script>
+
+</body>
+</html>
+

@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra số chẵn - số lẻ</title>
+
+    <!-- CSS: Thiết kế giao diện -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .container {
+            background-color: white;
+            width: 350px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        h2 {
+            color: #007bff;
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #ketqua {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Kiểm tra số chẵn - số lẻ</h2>
+
+        <p>Nhập một số nguyên:</p>
+
+        <input type="number" id="so" placeholder="Nhập số nguyên">
+
+        <br>
+
+        <button onclick="kiemTra()">Kiểm tra</button>
+
+        <p id="ketqua"></p>
+    </div>
+
+    <!-- JavaScript: Xử lý chức năng -->
+    <script>
+        function kiemTra() {
+            let soNhap = document.getElementById("so").value;
+            let so = Number(soNhap);
+            let ketqua = document.getElementById("ketqua");
+
+            if (soNhap === "" || !Number.isInteger(so)) {
+                ketqua.innerHTML = "Vui lòng nhập một số nguyên!";
+            } 
+            else if (so % 2 === 0) {
+                ketqua.innerHTML = so + " là số chẵn";
+            } 
+            else {
+                ketqua.innerHTML = so + " là số lẻ";
+            }
+        }
+    </script>
+
+</body>
+</html>

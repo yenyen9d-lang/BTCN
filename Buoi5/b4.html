@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Máy tính tình yêu</title>
+</head>
+<body>
+
+    <h2>Máy tính tình yêu</h2>
+
+    <p>Nhập tên của bạn:</p>
+    <input type="text" id="ten1" placeholder="Tên của bạn">
+
+    <p>Nhập tên người ấy:</p>
+    <input type="text" id="ten2" placeholder="Tên người ấy">
+
+    <br><br>
+
+    <button onclick="tinhYeu()">Tính tỷ lệ</button>
+
+    <p id="ketqua"></p>
+
+    <script>
+        function tinhYeu() {
+            let ten1 = document.getElementById("ten1").value;
+            let ten2 = document.getElementById("ten2").value;
+
+            if (ten1.trim() === "" || ten2.trim() === "") {
+                document.getElementById("ketqua").innerHTML =
+                    "Vui lòng nhập đầy đủ hai tên!";
+                return;
+            }
+
+            let phanTram = Math.floor(Math.random() * 100) + 1;
+            let thongBao;
+
+            if (phanTram >= 80) {
+                thongBao = "Hai bạn rất hợp nhau!";
+            } else if (phanTram >= 50) {
+                thongBao = "Hai bạn khá hợp nhau!";
+            } else {
+                thongBao = "Hãy tìm hiểu nhau nhiều hơn nhé!";
+            }
+
+            document.getElementById("ketqua").innerHTML =
+                ten1 + " ❤️ " + ten2 +
+                "<br>Tỷ lệ phù hợp: " + phanTram + "%" +
+                "<br>" + thongBao;
+        }
+    </script>
+
+</body>
+</html>
