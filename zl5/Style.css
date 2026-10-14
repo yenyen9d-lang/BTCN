@@ -1,0 +1,65 @@
+.card {
+    width: 350px;
+    margin: 50px auto;
+    padding: 25px;
+    border: 2px solid #cccccc;
+    border-radius: 15px;
+    background-color: #ffffff;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #6c63ff;
+    object-fit: cover;
+}
+
+.name {
+    font-size: 28px;
+    color: #333333;
+    margin: 15px 0 5px;
+}
+
+.job {
+    color: #6c63ff;
+    font-size: 16px;
+    margin: 5px 0 15px;
+}
+
+.description {
+    color: #555555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.skills {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 25px;
+}
+
+.skills li {
+    display: inline-block;
+    background-color: #eeeeff;
+    color: #5148c7;
+    padding: 8px 12px;
+    margin: 4px;
+    border-radius: 8px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #6c63ff;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 5px;
+}
+
+.btn:hover {
+    background-color: #3930a8;
+}
