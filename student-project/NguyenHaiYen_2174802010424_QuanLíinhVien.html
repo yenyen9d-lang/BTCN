@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập: Quản Lý Sinh Viên</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Bài Tập: Quản Lý Sinh Viên</h1>
+
+    <!-- Ô nhập liệu: dùng chung cho cả Thêm và Sửa -->
+    <div class="form-nhap">
+        <input type="text" id="mssv" placeholder="Mã SV (VD: SV001)">
+        <input type="text" id="hoten" placeholder="Họ tên">
+        <input type="text" id="lop" placeholder="Lớp (VD: CNTT01)">
+        <button id="btnThem" onclick="luuSinhVien()">Thêm</button>
+    </div>
+
+    <!-- BẢNG DANH SÁCH -->
+    <table>
+        <thead>
+            <tr>
+                <th>Mã SV</th>
+                <th>Họ tên</th>
+                <th>Lớp</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+        </tbody>
+    </table>
+</div>
+
+<script>
+    // Dữ liệu mẫu ban đầu
+    let danhSachSV = [
+        { mssv: "SV001", hoten: "Nguyễn Văn A", lop: "CNTT01" },
+        { mssv: "SV002", hoten: "Trần Thị B", lop: "CNTT02" },
+        { mssv: "SV003", hoten: "Lê Văn C", lop: "CNTT01" }
+    ];
+
+    // Mã sinh viên đang sửa
+    let dangSuaId = null;
+
+    // Tham chiếu đến các phần tử HTML
+    const oMssv = document.getElementById("mssv");
+    const oHoten = document.getElementById("hoten");
+    const oLop = document.getElementById("lop");
+    const oBtnThem = document.getElementById("btnThem");
+    const oTableBody = document.getElementById("tableBody");
+
+    // TODO 1: Tìm vị trí sinh viên theo mã SV
+    function timViTri(mssv) {
+        for (let i = 0; i < danhSachSV.length; i++) {
+            if (danhSachSV[i].mssv === mssv) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    // TODO 2: Hiển thị danh sách sinh viên
+    function hienThiDanhSach() {
+        let html = "";
+
+        for (let i = 0; i < danhSachSV.length; i++) {
+            let sv = danhSachSV[i];
+
+            html += `
+                <tr>
+                    <td>${sv.mssv}</td>
+                    <td>${sv.hoten}</td>
+                    <td>${sv.lop}</td>
+                    <td>
+                        <button class="btn-sua"
+                            onclick="suaSinhVien('${sv.mssv}')">
+                            Sửa
+                        </button>
+
+                        <button class="btn-xoa"
+                            onclick="xoaSinhVien('${sv.mssv}')">
+                            Xóa
+                        </button>
+                    </td>
+                </tr>
+            `;
+        }
+
+        oTableBody.innerHTML = html;
+    }
+
+    // TODO 3: Thêm hoặc cập nhật sinh viên
+    function luuSinhVien() {
+        let mssv = oMssv.value;
+        let hoten = oHoten.value;
+        let lop = oLop.value;
+
+        let sinhVienMoi = {
+            mssv: mssv,
+            hoten: hoten,
+            lop: lop
+        };
+
+        if (dangSuaId === null) {
+            // Thêm sinh viên mới vào mảng
+            danhSachSV.push(sinhVienMoi);
+        } else {
+            // Tìm vị trí sinh viên cần cập nhật
+            let viTri = timViTri(dangSuaId);
+
+            if (viTri !== -1) {
+                danhSachSV[viTri] = sinhVienMoi;
+            }
+
+            // Chuyển về chế độ thêm mới
+            dangSuaId = null;
+            oBtnThem.textContent = "Thêm";
+        }
+
+        // Xóa trắng các ô nhập
+        oMssv.value = "";
+        oHoten.value = "";
+        oLop.value = "";
+
+        // Hiển thị lại danh sách
+        hienThiDanhSach();
+    }
+
+    // TODO 4: Xóa sinh viên
+    function xoaSinhVien(mssv) {
+        let viTri = timViTri(mssv);
+
+        if (viTri !== -1) {
+            danhSachSV.splice(viTri, 1);
+        }
+
+        // Hiển thị lại danh sách sau khi xóa
+        hienThiDanhSach();
+    }
+
+    // TODO 5: Sửa sinh viên
+    function suaSinhVien(mssv) {
+        let viTri = timViTri(mssv);
+
+        if (viTri !== -1) {
+            let sv = danhSachSV[viTri];
+
+            // Đưa thông tin lên các ô nhập
+            oMssv.value = sv.mssv;
+            oHoten.value = sv.hoten;
+            oLop.value = sv.lop;
+
+            // Lưu mã sinh viên đang sửa
+            dangSuaId = mssv;
+
+            // Đổi tên nút
+            oBtnThem.textContent = "Cập nhật";
+        }
+    }
+
+    // Hiển thị danh sách khi mở trang
+    hienThiDanhSach();
+</script>
+
+</body>
+</html>
